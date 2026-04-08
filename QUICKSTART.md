@@ -4,26 +4,26 @@
 
 ### Prerequisites
 - Python 3.9+
-- OpenAI API Key (free trial available)
+- Google Gemini API Key (free at ai.google.dev)
 - 2GB RAM
 
 ### Step 1: Clone & Setup (2 min)
 ```bash
 cd project_bot
-bash setup.sh
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
 ```
-
-This will:
-- Create Python virtual environment
-- Install dependencies
-- Generate .env file
 
 ### Step 2: Configure API Key (1 min)
 ```bash
-# Edit .env and add your OpenAI API Key
+# Copy environment file
+cp .env.example .env
+
+# Edit .env and add your Gemini API Key
 nano .env
-# Find line: OPENAI_API_KEY=your_openai_api_key_here
-# Replace with your actual key from platform.openai.com
+# Find line: GEMINI_API_KEY=your_google_gemini_api_key_here
+# Replace with your actual key from ai.google.dev
 ```
 
 ### Step 3: Start Server (1 min)
@@ -79,7 +79,7 @@ Open: http://localhost:8000/docs
 
 **"API Key not found"**
 - Check .env file exists: `ls -la .env`
-- Verify key format: starts with `sk-`
+- Verify key format: starts with `AIzaSy`
 
 **"Port 8000 already in use"**
 ```bash
