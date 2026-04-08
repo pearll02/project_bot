@@ -72,17 +72,23 @@ GEMINI_MODEL=gemini-2.5-flash
 python -m uvicorn app.main:app --reload
 ```
 
-Server will start at: http://localhost:8000
+Server will start at:
+- http://localhost:8000
+- OR http://127.0.0.1:8000
 
+**Interactive API Documentation:**
+- Swagger UI: http://localhost:8000/docs or http://127.0.0.1:8000/docs
 
 
 ## API Documentation
 
 ### Interactive Documentation
 
-Once running, visit:
-- **Swagger UI**: http://localhost:8000/docs
-- **ReDoc**: http://localhost:8000/redoc
+Once running, visit any of these URLs:
+- **Swagger UI**: http://localhost:8000/docs or http://127.0.0.1:8000/docs
+- **ReDoc**: http://localhost:8000/redoc or http://127.0.0.1:8000/redoc
+
+Both URLs work - use whichever you prefer!
 
 ### Endpoints
 

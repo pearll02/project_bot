@@ -163,7 +163,9 @@ cp .env.example .env
 # 5. Run
 python -m uvicorn app.main:app --reload
 
-# 6. Visit http://localhost:8000/docs
+# 6. Visit API Documentation
+# Swagger UI: http://localhost:8000/docs
+# Or: http://127.0.0.1:8000/docs
 ```
 
 ## API Endpoints Reference

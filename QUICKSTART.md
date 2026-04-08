@@ -33,18 +33,27 @@ python -m uvicorn app.main:app --reload
 
 You should see:
 ```
-INFO:     Uvicorn running on http://0.0.0.0:8000
+INFO:     Uvicorn running on http://127.0.0.1:8000
 INFO:     Application startup complete
 ```
 
 ### Step 4: Test API (1 min)
 
-**In another terminal:**
+**Option 1: Interactive Swagger UI**
+Open your browser and visit:
+- http://localhost:8000/docs
+- OR http://127.0.0.1:8000/docs
+
+You can test all API endpoints directly from the browser!
+
+**Option 2: ReDoc Documentation**
+Visit: http://localhost:8000/redoc
+
+**Option 3: Test with script**
+In another terminal:
 ```bash
 bash examples.sh
 ```
-
-Or visit: http://localhost:8000/docs
 
 ---
 
