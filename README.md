@@ -86,7 +86,6 @@ Server will start at:
 
 Once running, visit any of these URLs:
 - **Swagger UI**: http://localhost:8000/docs or http://127.0.0.1:8000/docs
-- **ReDoc**: http://localhost:8000/redoc or http://127.0.0.1:8000/redoc
 
 Both URLs work - use whichever you prefer!
 

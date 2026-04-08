@@ -102,7 +102,7 @@ project_bot/
 - Comprehensive error handling
 - Structured logging
 - Input validation
-- Interactive API documentation (Swagger/ReDoc)
+- Interactive API documentation (Swagger)
 - Environment-based configuration
 - Clean modular architecture
 
