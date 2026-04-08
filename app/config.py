@@ -9,7 +9,7 @@ class Settings(BaseSettings):
     
     # Google Gemini Configuration
     gemini_api_key: str
-    gemini_model: str = "gemini-pro"
+    gemini_model: str = "gemini-2.5-flash"
     embedding_api_key: Optional[str] = None  # Optional, uses Gemini for embeddings
     
     # Application Configuration
