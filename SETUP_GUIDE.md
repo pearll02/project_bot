@@ -4,32 +4,31 @@ Follow these steps to get the project running on your machine.
 
 ## 📋 What You Need Before Starting
 
-- ✅ Python 3.9 or higher (check with `python3 --version`)
-- ✅ An OpenAI API key (get free trial at platforms.openai.com)
-- ✅ ~2GB free disk space
-- ✅ ~500MB RAM minimum
-- ✅ Terminal/Command line access
+- Python 3.9 or higher (check with `python3 --version`)
+- A Google Gemini API key (get free at ai.google.com)
+- ~2GB free disk space
+- ~500MB RAM minimum
+- Terminal/Command line access
 
 ---
 
-## 🔑 Step 1: Get OpenAI API Key (5 minutes)
+## Key 1: Get Google Gemini API Key (5 minutes)
 
-### 1.1 Create OpenAI Account
-1. Go to: https://platform.openai.com/signup
-2. Sign up with email or Google account
-3. Verify your email
+### 1.1 Create Google Account
+1. Go to: https://ai.google.dev
+2. Sign in with Google account
+3. No credit card needed
 
 ### 1.2 Get API Key
-1. Log in to: https://platform.openai.com/account/api-keys
-2. Click "Create new secret key"
-3. Copy the key (it will start with `sk-`)
-4. **Save it somewhere safe** - you'll only see it once!
+1. Go to: https://ai.google.dev/api/keys
+2. Click "Create API Key"
+3. Copy the key
+4. **Save it somewhere safe**
 
 ### 1.3 Verify API Key Works (Optional)
 ```bash
-# Test with curl
-curl https://api.openai.com/v1/models \
-  -H "Authorization: Bearer sk-YOUR-KEY-HERE"
+# Test in Python
+python3 -c "import google.generativeai as genai; genai.configure(api_key='YOUR_KEY'); print('Valid!')"
 ```
 
 ---
@@ -56,18 +55,14 @@ nano .env
 
 **You'll see:**
 ```
-# OpenAI Configuration
-OPENAI_API_KEY=your_openai_api_key_here
-OPENAI_MODEL=gpt-4
-OPENAI_EMBEDDING_MODEL=text-embedding-3-small
+GEMINI_API_KEY=your_google_gemini_api_key_here
+GEMINI_MODEL=gemini-2.5-flash
 ```
 
-**Replace `your_openai_api_key_here` with your actual key:**
+**Replace with your actual key:**
 ```
-# OpenAI Configuration
-OPENAI_API_KEY=sk-proj-abc123xyz...
-OPENAI_MODEL=gpt-4
-OPENAI_EMBEDDING_MODEL=text-embedding-3-small
+GEMINI_API_KEY=AIzaSy...
+GEMINI_MODEL=gemini-2.5-flash
 ```
 
 **Save and exit:**
@@ -119,7 +114,7 @@ pip install -r requirements.txt
 This will install:
 - FastAPI - Web framework
 - Uvicorn - Web server
-- OpenAI - LLM API
+- Google Generative AI - Gemini API
 - FAISS - Vector database
 - pdfplumber - PDF parsing
 - And other dependencies
@@ -129,14 +124,14 @@ This will install:
 ### 3.4 Verify Installation
 ```bash
 # Check if all packages installed
-pip list | grep -E "fastapi|openai|faiss"
+pip list | grep -E "fastapi|google.generative|faiss"
 ```
 
 You should see:
 ```
-openai                    1.6.1
-fastapi                   0.104.1
-faiss-cpu                 1.7.4
+google-generativeai        0.3.0
+fastapi                    0.110.0
+faiss-cpu                  1.13.2
 ```
 
 ---
@@ -279,13 +274,12 @@ This will:
 
 ---
 
-## 🎯 What Each Configuration Means
+### 🎯 What Each Configuration Means
 
 | Setting | Default | What It Does | Change If |
-|---------|---------|-------------|-----------|
-| `OPENAI_API_KEY` | ❌ Required | Your OpenAI credentials | Must add your key |
-| `OPENAI_MODEL` | gpt-4 | Which LLM to use | Want faster responses → use `gpt-3.5-turbo` |
-| `OPENAI_EMBEDDING_MODEL` | text-embedding-3-small | Embedding model | Need higher accuracy → use `text-embedding-3-large` |
+|---------|---------|-------------|----------|
+| `GEMINI_API_KEY` | ❌ Required | Your Gemini credentials | Must add your key |
+| `GEMINI_MODEL` | gemini-2.5-flash | Which LLM to use | Want different model |
 | `CHUNK_SIZE` | 500 | Tokens per text chunk | Want faster search → reduce to 300 |
 | `CHUNK_OVERLAP` | 100 | Overlap between chunks | Want better context → increase to 200 |
 | `TOP_K_CHUNKS` | 5 | Results to retrieve | Want more context → increase to 10 |
@@ -293,22 +287,22 @@ This will:
 
 ---
 
-## ⏱️ Performance Tips
+### ⏱️ Performance Tips
 
 ### For Faster Responses (Trade Accuracy)
 ```bash
 # Edit .env
-OPENAI_MODEL=gpt-3.5-turbo        # Faster, cheaper LLM
-CHUNK_SIZE=300                    # Smaller chunks
-TOP_K_CHUNKS=3                    # Fewer results
+GEMINI_MODEL=gemini-1.5-flash      # Faster model
+CHUNK_SIZE=300                     # Smaller chunks
+TOP_K_CHUNKS=3                     # Fewer results
 ```
 
 ### For Better Accuracy (Trade Speed)
 ```bash
 # Edit .env
-OPENAI_MODEL=gpt-4                # More capable LLM
-CHUNK_SIZE=750                    # Larger chunks
-TOP_K_CHUNKS=10                   # More results
+GEMINI_MODEL=gemini-2.5-flash      # More capable model
+CHUNK_SIZE=750                     # Larger chunks
+TOP_K_CHUNKS=10                    # More results
 ```
 
 ---
@@ -329,17 +323,17 @@ venv\Scripts\activate     # Windows
 pip install -r requirements.txt
 ```
 
-### Issue 2: "API Key not provided" or "OpenAI API Error"
+### Issue 2: "API Key not provided" or "Gemini API Error"
 
-**Problem:** OpenAI API key not configured correctly
+**Problem:** Gemini API key not configured correctly
 
 **Solution:**
 ```bash
 # Check .env file
-cat .env | grep OPENAI_API_KEY
+cat .env | grep GEMINI_API_KEY
 
-# Should show: OPENAI_API_KEY=sk-...
-# If it shows "your_openai_api_key_here", edit .env again
+# Should show: GEMINI_API_KEY=AIzaSy...
+# If it shows "your_google_gemini_api_key_here", edit .env again
 nano .env
 ```
 
@@ -387,7 +381,7 @@ pip install faiss-cpu
 
 After setup, verify everything works:
 
-- [ ] `.env` file created and has your API key
+- [ ] `.env` file created and has your Gemini API key
 - [ ] Virtual environment activated (see `(venv)` in prompt)
 - [ ] Dependencies installed (`pip list` shows packages)
 - [ ] Server running (`python -m uvicorn app.main:app --reload`)

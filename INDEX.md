@@ -34,9 +34,9 @@ Welcome to the **Document Q&A Chatbot REST API**! This file helps you navigate a
 # 1. Run setup script
 bash setup.sh
 
-# 2. Add your OpenAI API key
+# 2. Add your Gemini API key
 nano .env
-# Add: OPENAI_API_KEY=sk-your-key-here
+# Add: GEMINI_API_KEY=your_key_here
 
 # 3. Start server
 python -m uvicorn app.main:app --reload
@@ -164,9 +164,8 @@ tail -f logs/app.log
 
 ### Required Settings (.env)
 ```env
-OPENAI_API_KEY=sk-...              # Your OpenAI API key (required)
-OPENAI_MODEL=gpt-4                 # LLM to use
-OPENAI_EMBEDDING_MODEL=text-embedding-3-small  # Embedding model
+GEMINI_API_KEY=your_key_here       # Your Gemini API key (required)
+GEMINI_MODEL=gemini-2.5-flash      # LLM to use
 ```
 
 ### Optional Tuning

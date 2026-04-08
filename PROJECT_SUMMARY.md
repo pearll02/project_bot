@@ -2,7 +2,7 @@
 
 ## Document Q&A Chatbot REST API - Complete
 
-A production-ready Document Processing and Question Answering REST API built with FastAPI, OpenAI GPT, and FAISS vector databases.
+A production-ready Document Processing and Question Answering REST API built with FastAPI, Google Gemini, and FAISS vector databases.
 
 ## Project Statistics
 
@@ -113,8 +113,8 @@ Total: 29 files | 268KB | ~2,500 LOC
 |-------|-----------|
 | **Framework** | FastAPI 0.104.1 |
 | **Server** | Uvicorn with Gunicorn |
-| **LLM** | OpenAI GPT-4/3.5 |
-| **Embeddings** | OpenAI text-embedding-3-small |
+| **LLM** | Google Gemini 2.5 Flash |
+| **Embeddings** | Local TF-IDF (No API calls) |
 | **Vector DB** | FAISS (CPU-based) |
 | **AsyncIO** | Python asyncio |
 | **Data Validation** | Pydantic 2.5.0 |
@@ -223,12 +223,12 @@ Included testing resources:
 
 
 
-## 📋 Configuration Options
+## Configuration Options
 
 Key environment variables:
 ```env
-OPENAI_API_KEY=sk-...              # OpenAI API key
-OPENAI_MODEL=gpt-4                 # LLM model
+GEMINI_API_KEY=your_key_here       # Google Gemini API key
+GEMINI_MODEL=gemini-2.5-flash      # LLM model
 CHUNK_SIZE=500                     # Tokens per chunk
 TOP_K_CHUNKS=5                     # Search results
 MAX_FILE_SIZE=52428800             # File limit
