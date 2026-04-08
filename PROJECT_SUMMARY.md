@@ -18,7 +18,7 @@ Upload any PDF or TXT document, then ask questions about it. The system uses:
 - **Lines of Code**: ~2,500
 - **Modules**: 8 core services
 - **API Endpoints**: 5 main operations
-- **Documentation**: 6 comprehensive guides
+- **Documentation**: 3 comprehensive guides
 
 ## Complete File Structure
 
@@ -32,9 +32,7 @@ project_bot/
 ├── Documentation
 │   ├── README.md                    # Full documentation (450+ lines)
 │   ├── QUICKSTART.md                # 5-minute quick start guide
-│   ├── ARCHITECTURE.md              # System design & internals
-│   ├── TESTING.md                   # Testing & validation guide
-│   └── POSTMAN_COLLECTION.md        # API collection for Postman
+│   └── PROJECT_SUMMARY.md           # Project overview & stats
 │
 ├── Application Code (app/)
 │   ├── __init__.py
@@ -225,24 +223,21 @@ curl -X POST http://localhost:8000/api/query \
 - Configuration management
 - Graceful shutdown handling
 
-## 📚 Documentation Guide
+## Documentation Guide
 
 | Document | Purpose | Read Time |
-|----------|---------|-----------|
+|----------|---------|----------|
 | [QUICKSTART.md](QUICKSTART.md) | Get running in 5 min | 5 min |
 | [README.md](README.md) | Complete guide | 20 min |
-| [ARCHITECTURE.md](ARCHITECTURE.md) | System design | 15 min |
-| [TESTING.md](TESTING.md) | Testing guide | 10 min |
-| [POSTMAN_COLLECTION.md](POSTMAN_COLLECTION.md) | API testing | 5 min |
 
-## 🧪 Testing Infrastructure
 
-Included testing resources:
-- Unit test examples for text processing & vector store
-- Integration test script for all endpoints
-- Load testing script for concurrent uploads
-- Performance measurement tools
-- Validation checklist for pre-flight
+
+## Testing
+
+The project includes:
+- Clean code adhering to best practices
+- API endpoints testable via Swagger UI at `/docs`
+- Interactive API documentation
 
 
 
@@ -329,31 +324,8 @@ This project demonstrates:
 - [ ] Review security settings
 - [ ] Load test with expected traffic
 
-## Resources
 
-- **FastAPI Documentation**: https://fastapi.tiangolo.com
-- **Google Gemini API**: https://ai.google.dev/
-- **FAISS Documentation**: https://github.com/facebookresearch/faiss
 
-## License
-
-This project is provided as-is for educational and commercial use.
-
----
-
-**Project Status**: Production Ready ✅
-
-## Summary
-
-**A complete, production-ready Document Q&A Chatbot REST API with:**
-
-✅ Full source code (2,500+ lines)
-✅ 6 comprehensive documentation files
-✅ Example scripts and client code
-✅ Testing framework and validation tools
-✅ Deployment-ready configuration
-✅ Clean, modular architecture
-✅ Ready for immediate use and extension
 
 **Next Steps:**
 1. Clone the repository
