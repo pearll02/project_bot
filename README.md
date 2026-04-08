@@ -33,7 +33,7 @@ A production-ready REST API for uploading documents and asking questions about t
 ### Prerequisites
 
 - Python 3.9 or higher
-- Google Gemini API Key (get from [ai.google.dev](https://ai.google.dev))
+- Google Gemini API Key 
 - 2GB RAM minimum
 - 1GB disk space
 
