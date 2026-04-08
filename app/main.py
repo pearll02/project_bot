@@ -6,7 +6,7 @@ from contextlib import asynccontextmanager
 from app.config import settings
 from app.utils.logger import logger
 from app.routers import upload, query
-
+import uvicorn
 # Lifespan context
 @asynccontextmanager
 async def lifespan(app: FastAPI):
@@ -85,7 +85,7 @@ async def global_exception_handler(request, exc):
 
 
 if __name__ == "__main__":
-    import uvicorn
+    
     
     uvicorn.run(
         app,
