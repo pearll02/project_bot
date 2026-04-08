@@ -1,8 +1,8 @@
-# 📚 Complete Project Index & Navigation Guide
+# Complete Project Index & Navigation Guide
 
 Welcome to the **Document Q&A Chatbot REST API**! This file helps you navigate all project resources.
 
-## 🚀 START HERE - Read These First!
+## START HERE - Read These First!
 
 ### For Complete Beginners (Copy-Paste Commands)
 👉 **Start Here:** [QUICK_START.md](QUICK_START.md) - Get running in 5 minutes with copy-paste commands

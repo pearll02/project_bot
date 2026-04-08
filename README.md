@@ -4,16 +4,15 @@ A production-ready REST API for uploading documents and asking questions about t
 
 ## Features
 
-✅ **Document Upload** - Support for PDF and TXT files  
-✅ **Semantic Search** - FAISS-based vector similarity search  
-✅ **RAG Implementation** - Context-aware LLM responses  
-✅ **Chat History Ready** - Session management structure  
-✅ **Async Operations** - Built with FastAPI for high performance  
-✅ **Comprehensive Logging** - Production-ready logging setup  
-
-✅ **API Documentation** - Auto-generated Swagger/OpenAPI docs  
-✅ **Error Handling** - Robust validation and error responses  
-✅ **Modular Architecture** - Clean separation of concerns  
+- Document Upload - Support for PDF and TXT files
+- Semantic Search - FAISS-based vector similarity search
+- RAG Implementation - Context-aware LLM responses
+- Chat History Ready - Session management structure
+- Async Operations - Built with FastAPI for high performance
+- Comprehensive Logging - Production-ready logging setup
+- API Documentation - Auto-generated Swagger/OpenAPI docs
+- Error Handling - Robust validation and error responses
+- Modular Architecture - Clean separation of concerns  
 
 ## Tech Stack
 

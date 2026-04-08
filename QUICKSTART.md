@@ -1,6 +1,6 @@
 # Quick Start Guide
 
-## 🚀 Get Running in 5 Minutes
+## Get Running in 5 Minutes
 
 ### Prerequisites
 - Python 3.9+
