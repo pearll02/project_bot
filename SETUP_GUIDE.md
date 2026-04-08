@@ -1,8 +1,8 @@
-# 🚀 Complete Setup & Running Guide
+# Complete Setup & Running Guide
 
 Follow these steps to get the project running on your machine.
 
-## 📋 What You Need Before Starting
+## What You Need Before Starting
 
 - Python 3.9 or higher (check with `python3 --version`)
 - A Google Gemini API key (get free at ai.google.com)
@@ -12,7 +12,7 @@ Follow these steps to get the project running on your machine.
 
 ---
 
-## Key 1: Get Google Gemini API Key (5 minutes)
+## Step 1: Get Google Gemini API Key (5 minutes)
 
 ### 1.1 Create Google Account
 1. Go to: https://ai.google.dev
@@ -33,7 +33,7 @@ python3 -c "import google.generativeai as genai; genai.configure(api_key='YOUR_K
 
 ---
 
-## 💻 Step 2: Setup Project Locally (5 minutes)
+## Step 2: Setup Project Locally (5 minutes)
 
 ### 2.1 Navigate to Project Directory
 ```bash
@@ -80,7 +80,7 @@ You should see your actual API key printed.
 
 ---
 
-## ⚙️ Step 3: Install Dependencies (3 minutes)
+## Step 3: Install Dependencies (3 minutes)
 
 ### 3.1 Create Virtual Environment
 ```bash
@@ -136,7 +136,7 @@ faiss-cpu                  1.13.2
 
 ---
 
-## 🏃 Step 4: Run the Server (2 minutes)
+## Step 4: Run the Server (2 minutes)
 
 ### 4.1 Make Sure Virtual Environment is Active
 ```bash
@@ -163,7 +163,7 @@ INFO:     Application startup complete
 
 ---
 
-## 🧪 Step 5: Test the Project (5 minutes)
+## Step 5: Test the Project (5 minutes)
 
 ### 5.1 In Another Terminal, Test Health Check
 
@@ -257,7 +257,7 @@ curl -X DELETE "http://localhost:8000/api/documents/$DOC_ID"
 
 ---
 
-## 📝 Complete Test Script
+## Complete Test Script
 
 Or run the complete automated test:
 
@@ -274,11 +274,11 @@ This will:
 
 ---
 
-### 🎯 What Each Configuration Means
+## Configuration Reference
 
 | Setting | Default | What It Does | Change If |
 |---------|---------|-------------|----------|
-| `GEMINI_API_KEY` | ❌ Required | Your Gemini credentials | Must add your key |
+| `GEMINI_API_KEY` | Required | Your Gemini credentials | Must add your key |
 | `GEMINI_MODEL` | gemini-2.5-flash | Which LLM to use | Want different model |
 | `CHUNK_SIZE` | 500 | Tokens per text chunk | Want faster search → reduce to 300 |
 | `CHUNK_OVERLAP` | 100 | Overlap between chunks | Want better context → increase to 200 |
@@ -287,7 +287,7 @@ This will:
 
 ---
 
-### ⏱️ Performance Tips
+## Performance Tips
 
 ### For Faster Responses (Trade Accuracy)
 ```bash
@@ -307,7 +307,7 @@ TOP_K_CHUNKS=10                    # More results
 
 ---
 
-## 🐛 Common Issues & Solutions
+## Troubleshooting
 
 ### Issue 1: "ModuleNotFoundError: No module named 'fastapi'"
 
@@ -377,23 +377,23 @@ pip install faiss-cpu
 
 ---
 
-## 📊 Testing Checklist
+## Verification Checklist
 
 After setup, verify everything works:
 
-- [ ] `.env` file created and has your Gemini API key
-- [ ] Virtual environment activated (see `(venv)` in prompt)
-- [ ] Dependencies installed (`pip list` shows packages)
-- [ ] Server running (`python -m uvicorn app.main:app --reload`)
-- [ ] Health check works (`curl http://localhost:8000/health`)
-- [ ] Swagger docs load (`http://localhost:8000/docs`)
-- [ ] Can upload a document
-- [ ] Can ask a question
-- [ ] Get answer back with confidence score
+- `.env` file created and has your Gemini API key
+- Virtual environment activated (see `(venv)` in prompt)
+- Dependencies installed (`pip list` shows packages)
+- Server running (`python -m uvicorn app.main:app --reload`)
+- Health check works (`curl http://localhost:8000/health`)
+- Swagger docs load (`http://localhost:8000/docs`)
+- Can upload a document
+- Can ask a question
+- Get answer back with confidence score
 
 ---
 
-## 🚀 What's Next?
+## What's Next
 
 Once everything is working:
 
@@ -419,7 +419,7 @@ Once everything is working:
 
 ---
 
-## 💡 Quick Reference
+## Quick Reference
 
 | Task | Command |
 |------|---------|
@@ -435,7 +435,7 @@ Once everything is working:
 
 ---
 
-## 📞 Need Help?
+## Need Help?
 
 1. Check [INDEX.md](INDEX.md) for troubleshooting section
 2. Look at [README.md](README.md) for detailed documentation
@@ -444,7 +444,7 @@ Once everything is working:
 
 ---
 
-## ✅ You're Ready!
+## You're Ready!
 
 Follow these steps in order and you'll have a working Document Q&A chatbot running locally. Start with Step 1 and work through each step sequentially.
 
