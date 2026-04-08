@@ -100,8 +100,7 @@ pip install faiss-cpu
 ## Next Steps
 
 1. Read [README.md](README.md) - Full documentation
-2. Read [ARCHITECTURE.md](ARCHITECTURE.md) - System design
-4. Explore API at: http://localhost:8000/docs
+2. Explore API at: http://localhost:8000/docs
 
 ---
 
@@ -148,9 +147,9 @@ curl -X DELETE http://localhost:8000/api/documents/$DOC_ID
 
 ## Performance Tips
 
-- **Faster responses**: Use `gpt-3.5-turbo` instead of `gpt-4`
+- **Faster responses**: Use `gemini-1.5-flash` instead of `gemini-2.5-flash`
 - **Better accuracy**: Increase `top_k` from 5 to 10
-- **Optimize costs**: Use `text-embedding-3-small` model
+- **Better context**: Increase `chunk_size` from 500 to 750 tokens
 - **Reduce latency**: Decrease `chunk_size` to 300 tokens
 
 ---
