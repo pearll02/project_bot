@@ -4,10 +4,10 @@ from typing import List
 from app.utils.logger import logger
 
 
-def count_tokens(text: str, model: str = "gpt-4") -> int:
+def count_tokens(text: str, model: str = "cl100k_base") -> int:
     """Count tokens in text using tiktoken"""
     try:
-        encoding = tiktoken.encoding_for_model(model)
+        encoding = tiktoken.get_encoding(model)
         return len(encoding.encode(text))
     except Exception as e:
         logger.warning(f"Error counting tokens: {str(e)}, using estimate")
@@ -19,7 +19,7 @@ def chunk_text(
     text: str,
     chunk_size: int = 500,
     chunk_overlap: int = 100,
-    model: str = "gpt-4"
+    model: str = "cl100k_base"
 ) -> List[str]:
     """
     Split text into overlapping chunks based on token count
@@ -28,13 +28,13 @@ def chunk_text(
         text: Text to chunk
         chunk_size: Target size in tokens
         chunk_overlap: Overlap size in tokens
-        model: Model name for token counting
+        model: Encoding model name (default: cl100k_base for compatibility)
     
     Returns:
         List of text chunks
     """
     # For simplicity, split by sentences/paragraphs and approximate tokens
-    encoding = tiktoken.encoding_for_model(model)
+    encoding = tiktoken.get_encoding(model)
     
     # Split by paragraphs first
     paragraphs = text.split('\n\n')

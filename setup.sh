@@ -38,17 +38,17 @@ if [ ! -f ".env" ]; then
     echo "⚠️  .env file not found!"
     echo "📋 Creating .env from example..."
     cp .env.example .env
-    echo "📝 Please edit .env and add your OPENAI_API_KEY"
+    echo "📝 Please edit .env and add your GEMINI_API_KEY"
     echo ""
     echo "   nano .env"
     echo ""
     exit 1
 fi
 
-# Check if OPENAI_API_KEY is set
-if ! grep -q "OPENAI_API_KEY=sk-" .env; then
-    echo "❌ ERROR: OPENAI_API_KEY not properly configured in .env"
-    echo "   Please set a valid OpenAI API key in .env file"
+# Check if GEMINI_API_KEY is set
+if ! grep -q "GEMINI_API_KEY=AIzaSy" .env; then
+    echo "❌ ERROR: GEMINI_API_KEY not properly configured in .env"
+    echo "   Please set a valid Google Gemini API key in .env file"
     exit 1
 fi
 

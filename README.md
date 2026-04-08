@@ -1,6 +1,6 @@
 # Document Q&A Chatbot REST API
 
-A production-ready REST API for uploading documents and asking questions about their content using RAG (Retrieval-Augmented Generation) with OpenAI GPT and FAISS vector search.
+A production-ready REST API for uploading documents and asking questions about their content using RAG (Retrieval-Augmented Generation) with Google Gemini and FAISS vector search.
 
 ## Features
 
@@ -20,8 +20,8 @@ A production-ready REST API for uploading documents and asking questions about t
 |-----------|-----------|
 | Framework | FastAPI 0.104.1 |
 | Python | 3.9+ |
-| LLM | OpenAI GPT-4 |
-| Embeddings | OpenAI text-embedding-3-small |
+| LLM | Google Gemini 2.5 Flash |
+| Embeddings | Local TF-IDF (No API calls) |
 | Vector DB | FAISS (Local) |
 | Document Parsing | pdfplumber, PyPDF2, python-docx |
 | Tokenization | tiktoken |
@@ -33,7 +33,7 @@ A production-ready REST API for uploading documents and asking questions about t
 ### Prerequisites
 
 - Python 3.9 or higher
-- OpenAI API Key (get from [platform.openai.com](https://platform.openai.com))
+- Google Gemini API Key (get from [ai.google.dev](https://ai.google.dev))
 - 2GB RAM minimum
 - 1GB disk space
 
@@ -58,19 +58,18 @@ pip install -r requirements.txt
 4. **Configure environment**
 ```bash
 cp .env.example .env
-# Edit .env and add your OpenAI API Key
+# Edit .env and add your Gemini API Key
 ```
 
 Required environment variables:
 ```env
-OPENAI_API_KEY=your_api_key_here
-OPENAI_MODEL=gpt-4
-OPENAI_EMBEDDING_MODEL=text-embedding-3-small
+GEMINI_API_KEY=your_api_key_here
+GEMINI_MODEL=gemini-2.5-flash
 ```
 
 5. **Run the server**
 ```bash
-python -m uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+python -m uvicorn app.main:app --reload
 ```
 
 Server will start at: http://localhost:8000
@@ -318,7 +317,7 @@ project_bot/
 │   │   └── query.py            # Question answering endpoints
 │   ├── services/
 │   │   ├── document_service.py # Document processing
-│   │   ├── embedding_service.py# OpenAI embeddings
+│   │   ├── embedding_service.py# Embeddings generation
 │   │   ├── vector_store.py     # FAISS vector storage
 │   │   └── rag_service.py      # RAG/LLM integration
 │   └── utils/
@@ -342,10 +341,9 @@ project_bot/
 Key environment variables:
 
 ```env
-# OpenAI
-OPENAI_API_KEY=sk-...                          # Your API key
-OPENAI_MODEL=gpt-4                             # LLM model
-OPENAI_EMBEDDING_MODEL=text-embedding-3-small # Embedding model
+# Google Gemini
+GEMINI_API_KEY=AIzaSy...                       # Your API key
+GEMINI_MODEL=gemini-2.5-flash                  # LLM model
 
 # App
 APP_NAME=Document QA Chatbot
@@ -377,12 +375,12 @@ PORT=8000
 - Recommended: **500 tokens** with 100-token overlap
 
 ### Embedding Model
-- `text-embedding-3-small` (512 dims): Fast, good for many documents
-- `text-embedding-3-large` (3072 dims): More accurate, slower
+- Local TF-IDF: No API calls, fast, good for most use cases
+- Advantage: Zero embedding costs
 
 ### LLM Model
-- `gpt-3.5-turbo`: Fast, cheap answers
-- `gpt-4`: More accurate, slower, more expensive
+- `gemini-1.5-flash`: Fast, good for quick responses
+- `gemini-2.5-flash`: More accurate, recommended (default)
 
 ## Error Handling
 
@@ -513,7 +511,7 @@ For issues and questions:
 1. Check logs: `tail -f logs/app.log`
 2. Verify API with curl: `curl http://localhost:8000/docs`
 3. Check environment configuration
-4. Review OpenAI API status
+4. Review Google Gemini API status
 
 ## Future Enhancements
 
